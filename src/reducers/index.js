@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import visits from '../reducers/visits.js';
 import user from '../reducers/user.js';
 import authentication from '../reducers/authentication.js';
 import { routerReducer } from 'react-router-redux';
@@ -7,6 +8,7 @@ const reducers = {
   login,
   routing: routerReducer,
   authentication,
-  user
+  user,
+  visits
 };
 module.exports = combineReducers(reducers);

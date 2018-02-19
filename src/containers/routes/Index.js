@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import Layout from 'components/Layout/OpenLayout';
 import Index from 'components/Pages/Index';
 
-import {} from 'actions/index';
+import {loadVisitData} from 'actions/index';
 
 class IndexComponent extends React.Component {
   render() {
@@ -28,14 +28,13 @@ IndexComponent.propTypes = {
 function mapStateToProps(state) {
   const props = {
     user: state.user,
-    menuOptions: state.menuOptions,
     location: state.location
   };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {};
+  const actions = {loadVisitData};
   const actionMap = {actions: bindActionCreators(actions, dispatch)};
   return actionMap;
 }

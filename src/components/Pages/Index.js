@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-import { inputValueChange } from 'actions';
+import { inputValueChange,loadVisitData } from 'actions';
 import {DatePicker} from 'common/components/index';
 
 import {
@@ -25,10 +25,12 @@ class IndexPage extends React.Component {
 
   handleDate(name, date) {
     this.setState({selectedDate: (new Date(date._d)).getTime()});
+    const {actions} = this.props;
+    actions.loadVisitData((new Date(date._d)).getTime());
   }
 
   render() {
-    const { actions} = this.props;
+    const { actions, visits} = this.props;
     const {selectedDate} = this.state;
     return (
       <div className="col-md-8">
@@ -52,6 +54,17 @@ class IndexPage extends React.Component {
                   <th scope="col">Visits</th>
                 </tr>
               </thead>
+              <tbody>
+              {
+                visits.map((visit, index) => (
+                    <tr key={visit._id}>
+                      <th scope="row">{index+1}</th>
+                      <td>{visit.website}</td>
+                      <td>{visit.visits}</td>
+                    </tr>
+                  ))
+              }
+              </tbody>
             </table>
           </div>
         </div>
@@ -68,12 +81,13 @@ IndexPage.propTypes = {
 
 function mapStateToProps(state) {
   const props = {
+    visits: state.visits
   };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { inputValueChange };
+  const actions = { inputValueChange, loadVisitData };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
