@@ -1,16 +1,56 @@
-<!doctype html>
+<!doctype html dir="ltr" lang="en">
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>React Webpack Template</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8" />
+  <title>mlfrontend</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+  <style>
+    .loader-container{
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .loader-text{
+        margin-top: -21px;
+        display: inline-flex;
+        vertical-align: middle;
+        margin-left: 5px;
+        font-size: 1.125rem;
+        color: #808080;
+        font-weight: 600;
+      }
+
+      .loader {
+          border: 10px solid #ffffff;
+          border-top: 10px solid #0088bf;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          display: inline-flex;
+          animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+      }
+  </style>
 </head>
 <body>
-  <div id="app">APPLICATION CONTENT</div>
+  <div id="app">
+    <div class='loader-container'>
+        <div class='loader'></div>
+        <div class='loader-text'>
+          Loading your data.
+        </div>
+    </div>
+  </div>
   <script>__REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__</script>
-  <script type="text/javascript" src="/assets/app.js"></script>
+  <script src="/assets/vendor.bundle.js" type="text/javascript" charset="utf-8" defer="true"></script>
+  <script src="/assets/app.bundle.js" type="text/javascript" charset="utf-8" defer="true"></script>
 </body>
 </html>

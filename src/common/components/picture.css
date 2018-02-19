@@ -1,0 +1,21 @@
+.image-with-uploader .uploader-div div {
+    position: relative;
+    top: -43px;
+    height: 42px;
+    opacity: 0.8;
+    width: 200px;
+    -webkit-appearance: none;
+    background: #000;
+    color: #fff !important;
+    padding-top: 10px !important;
+    visibility: hidden;
+}
+
+.image-with-uploader .uploader-div span {
+    color: #fff !important;
+}
+
+.image-with-uploader:hover .uploader-div div{
+	visibility: visible;
+	cursor: pointer;
+}

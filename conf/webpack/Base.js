@@ -204,11 +204,14 @@ class WebpackBaseConfig {
         alias: {
           actions: `${this.srcPathAbsolute}/actions/`,
           components: `${this.srcPathAbsolute}/components/`,
+          common: `${this.srcPathAbsolute}/common/`,
+          reducers: `${this.srcPathAbsolute}/reducers/`,
           config: `${this.srcPathAbsolute}/config/${this.env}.js`,
           images: `${this.srcPathAbsolute}/images/`,
           sources: `${this.srcPathAbsolute}/sources/`,
           stores: `${this.srcPathAbsolute}/stores/`,
-          styles: `${this.srcPathAbsolute}/styles/`
+          styles: `${this.srcPathAbsolute}/styles/`,
+          popperjs: `${this.srcNPMPathAbsolute}/popper.js/dist/esm/popper.min.js`
         },
         extensions: ['.js', '.jsx'],
         modules: [

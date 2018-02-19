@@ -1,21 +1,28 @@
-import { createStore } from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import { routerReducer } from 'react-router-redux';
+
 import reducers from '../reducers';
 
-function reduxStore(initialState) {
-  const store = createStore(reducers, initialState,
-    window.devToolsExtension && window.devToolsExtension());
+const reduxStore = () => {
+
+  const store = createStore(
+      reducers,
+      // initialState,
+      compose(
+        applyMiddleware(thunk),
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+  ));
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('../reducers', () => {
-      // We need to require for hot reloading to work properly.
-      const nextReducer = require('../reducers');  // eslint-disable-line global-require
-
+      const nextReducer = require('../reducers');
       store.replaceReducer(nextReducer);
     });
   }
 
   return store;
-}
+};
 
 export default reduxStore;
