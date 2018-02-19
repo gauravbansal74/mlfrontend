@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title>mlfrontend</title>
+  <meta name="description" content="">
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    .loader-container{
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .loader-text{
+        margin-top: -21px;
+        display: inline-flex;
+        vertical-align: middle;
+        margin-left: 5px;
+        font-size: 1.125rem;
+        color: #808080;
+        font-weight: 600;
+      }
+
+      .loader {
+          border: 10px solid #ffffff;
+          border-top: 10px solid #0088bf;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          display: inline-flex;
+          animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+      }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class='loader-container'>
+        <div class='loader'></div>
+        <div class='loader-text'>
+          Loading your data.
+        </div>
+    </div>
+  </div>
+  <script>__REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__</script>
+  <script src="/assets/vendor.bundle.js" type="text/javascript" charset="utf-8" defer="true"></script>
+  <script src="/assets/app.bundle.js" type="text/javascript" charset="utf-8" defer="true"></script>
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
