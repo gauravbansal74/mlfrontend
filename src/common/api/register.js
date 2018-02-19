@@ -15,7 +15,7 @@ const Register = {
   loginAccount(email, password) {
     const data = {email, password};
     return Request.post('login', data).then((result, status, response) => {
-      saveCookies('token', response.getResponseHeader('O-Encoding'));
+      saveCookies('token', response.getResponseHeader('Authorization'));
       return result;
     });
   }

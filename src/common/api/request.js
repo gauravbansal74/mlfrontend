@@ -10,7 +10,7 @@ const Request = {
       data: JSON.stringify(data),
       beforeSend: (request) => {
         request.setRequestHeader('content-type', 'application/json');
-        request.setRequestHeader('O-Encoding', loadCookies('token'));
+        request.setRequestHeader('Authorization', loadCookies('token'));
       }
     });
   },
@@ -20,7 +20,7 @@ const Request = {
       type: 'GET',
       beforeSend: (request) => {
         request.setRequestHeader('content-type', 'application/json');
-        request.setRequestHeader('O-Encoding', loadCookies('token'));
+        request.setRequestHeader('Authorization', loadCookies('token'));
       }
     });
   },
