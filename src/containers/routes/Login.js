@@ -5,13 +5,11 @@ import {connect} from 'react-redux';
 
 import OpenLayout from 'components/Layout/OpenLayout';
 import Login from 'components/Pages/Login';
-// import {Notification} from 'common/index';
 
 class LoginComponent extends React.Component {
   render() {
     return (
       <OpenLayout authentication={this.props.authentication} logout={()=>{}}>
-        {/* <Notification /> */}
         <Login {...this.props} />
       </OpenLayout>
     );

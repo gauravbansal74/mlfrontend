@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router';
-
+import Notification from 'common/notification/index';
 const OpenLayoutComponent = ({children, authentication, logout}) => {
   return (
     <div className="container-fluid p-0">
+      <Notification />
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <span className="navbar-brand mb-0 h1">Website Visits</span>
         <button className="navbar-toggler" type="button">
