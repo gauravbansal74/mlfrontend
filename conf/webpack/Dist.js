@@ -1,42 +1,70 @@
 'use strict';
 
 /**
- * Dist configuration. Used to build the
- * final output when running npm run dist.
+ * Default dev server configuration.
  */
+
 const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackBaseConfig = require('./Base');
 
-class WebpackDistConfig extends WebpackBaseConfig {
+const baseDist = './dist';
 
+class WebpackDevConfig extends WebpackBaseConfig {
   constructor() {
     super();
     this.config = {
-      cache: false,
-      devtool: 'source-map',
-      entry: [
-        './client.js'
-      ],
+      entry: {
+        app: './client.js',
+        index: './containers/routes/Index',
+        login: './containers/routes/Login',
+        dataSource: './containers/routes/DataSource',
+      },
+      output: {
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].bundle.js',
+        path: path.resolve('./dist/assets'),
+        publicPath: 'http://localhost:8000/assets/'
+      },
+      devtool: 'eval',
       plugins: [
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV': '"production"'
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        new webpack.ContextReplacementPlugin(/\.\/locale$/, 'empty-module', false, /js$/),
+        new webpack.IgnorePlugin(/^\.\/i18n$/, /parsleyjs$/),
+        new webpack.optimize.AggressiveMergingPlugin(), // Merge chunks
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.MinChunkSizePlugin({minChunkSize: 10000}),
+        new CleanWebpackPlugin([baseDist]),
+        new HtmlWebpackPlugin({
+          title: 'Development'
         }),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.optimize.CommonsChunkPlugin({
+          name: 'vendor',
+          filename: 'vendor.bundle.js',
+          minChunks: module => module.context && module.context.indexOf('node_modules') !== -1
+        }),
+        new webpack.ProvidePlugin({
+          $: 'jquery',
+          jQuery: 'jquery',
+          moment: 'moment',
+          'window.jQuery': 'jquery',
+          'window.parsley': 'parsleyjs',
+          'immutable': 'immutable',
+          'Immutable': 'immutable',
+          'window.Immutable': 'immutable',
+          'draft-js': 'draft-js',
+          popperjs: 'popperjs',
+          'React': 'react',
+          'ReactDOM': 'react-dom',
+          Popper: ['popperjs', 'default'],
+        })
       ]
     };
-
-    // Deactivate hot-reloading if we run dist build on the dev server
-    this.config.devServer.hot = false;
-  }
-
-  /**
-   * Get the environment name
-   * @return {String} The current environment
-   */
-  get env() {
-    return 'dist';
   }
 }
 
-module.exports = WebpackDistConfig;
+module.exports = WebpackDevConfig;
