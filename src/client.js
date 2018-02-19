@@ -16,13 +16,13 @@ const store = configureStore(() => {});
 const history = syncHistoryWithStore(browserHistory, store);
 
 // Check the token from cookies and validate if token is valid.. Do auto login
-// const userData = verifyUser();
-// userData.then((res) => {
-//   store.dispatch({type: USER_PROFILE_LOADED, parameter: res.results});
-//   store.dispatch({type: LOGGED_IN, parameter: true});
-// }).catch(() => {
+const userData = verifyUser();
+userData.then((res) => {
+  store.dispatch({type: USER_PROFILE_LOADED, parameter: res.results});
+  store.dispatch({type: LOGGED_IN, parameter: true});
+}).catch(() => {
   store.dispatch({type: LOGGED_IN, parameter: false});
-// });
+});
 
 // Router for application Level
 render(
