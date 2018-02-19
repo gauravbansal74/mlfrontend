@@ -4,30 +4,26 @@
  * src/container/App.js accordingly.
  */
 import {
-  LOGIN_EMAIL_ENTERED,
-  LOGIN_PASSWORD_ENTERED} from 'actions/const';
+  USER_PROFILE_LOADED
+} from '../actions/const';
 
-const initialState = {
-  email: '',
-  password: ''
-};
+const initialState = {};
 
 function reducer(state = initialState, action) {
   /* Keep the reducer clean - do not mutate the original state. */
   // const nextState = Object.assign({}, state);
 
   switch (action.type) {
-    case LOGIN_EMAIL_ENTERED: {
+    /*
+    case YOUR_ACTION: {
       // Modify next state depending on the action and return it
-      const nextState = state;
-      nextState.email = action.parameter;
-      return Object.assign({}, nextState);
+      return nextState;
     }
-    case LOGIN_PASSWORD_ENTERED: {
+    */
+
+    case USER_PROFILE_LOADED: {
       // Modify next state depending on the action and return it
-      const nextState = state;
-      nextState.password = action.parameter;
-      return Object.assign({}, nextState);
+      return Object.assign({}, action.parameter);
     }
     default: {
       /* Return original state if no actions were consumed. */

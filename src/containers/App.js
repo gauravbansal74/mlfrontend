@@ -11,16 +11,17 @@ import {
   userProfileLoaded,
   loginEmailEntered,
   loginPasswordEntered,
-  authCheck
+  authCheck,
+  inputValueChange
 } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, login, authentication} = this.props;
+    const {actions, login, authentication, user} = this.props;
     return (
-      <div {...this.props}>
+      <div {...this.props} user={user}>
         {this.props.children}
       </div>
     );
@@ -37,17 +38,20 @@ App.propTypes = {
     userProfileLoaded: PropTypes.func.isRequired,
     loginEmailEntered: PropTypes.func.isRequired,
     loginPasswordEntered: PropTypes.func.isRequired,
-    authCheck: PropTypes.func.isRequired
+    authCheck: PropTypes.func.isRequired,
+    inputValueChange: PropTypes.func.isRequired
   }),
   login: PropTypes.shape({}),
-  authentication: PropTypes.shape({})
+  authentication: PropTypes.shape({}),
+  user: PropTypes.shape({})
 };
 function mapStateToProps(state) {
   // eslint-disable-line no-unused-vars
   /* Populated by react-webpack-redux:reducer */
   const props = {
     login: state.login,
-    authentication: state.authentication
+    authentication: state.authentication,
+    user: state.user
   };
   return props;
 }
@@ -58,7 +62,8 @@ function mapDispatchToProps(dispatch) {
     userProfileLoaded,
     loginEmailEntered,
     loginPasswordEntered,
-    authCheck
+    authCheck,
+    inputValueChange
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
