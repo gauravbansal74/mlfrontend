@@ -26,8 +26,7 @@ const DateSelector = ({label, name, value, placeholder, helpText, required, onCh
       required={required}
       onChange={(date) => {
         onChange(name, date);
-      }}
-			/>
+      }}/>
     <small className="form-text text-muted">{helpText}</small>
   </div>
 	);

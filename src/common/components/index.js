@@ -5,11 +5,11 @@ Allows to import actions like so:
 
 import {action1, action2} from '../actions/'
 */
-// import DatePicker from './DatePicker.js';
+import DatePicker from './DatePicker.js';
 import Form from './Form.js';
 // import Icon from './Icon.js';
 // import InputGroup from './InputGroup.js';
-import Layout from './layout.js';
+// import Layout from './layout.js';
 // import Modal from './Modal.js';
 // import OverDiv from './OverDiv.js';
 // import Select from './Select.js';
@@ -21,11 +21,11 @@ import Layout from './layout.js';
 // import UserSelect from './UserSelect.js';
 
 const components = {
-  // DatePicker,
+  DatePicker,
   Form,
   // Icon,
   // InputGroup,
-  Layout,
+  // Layout,
   // Modal,
   // OverDiv,
   // Select,

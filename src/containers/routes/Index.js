@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import MainLayout from 'components/Layout/MainLayout';
+import Layout from 'components/Layout/OpenLayout';
 import Index from 'components/Pages/Index';
 
 import {} from 'actions/index';
@@ -13,9 +13,9 @@ import {} from 'actions/index';
 class IndexComponent extends React.Component {
   render() {
     return (
-      <MainLayout>
+      <Layout>
         <Index {...this.props} />
-      </MainLayout>
+      </Layout>
     );
   }
 }

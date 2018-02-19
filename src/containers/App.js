@@ -12,7 +12,8 @@ import {
   loginEmailEntered,
   loginPasswordEntered,
   authCheck,
-  inputValueChange
+  inputValueChange,
+  dateSelectedForVisits
 } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -39,7 +40,8 @@ App.propTypes = {
     loginEmailEntered: PropTypes.func.isRequired,
     loginPasswordEntered: PropTypes.func.isRequired,
     authCheck: PropTypes.func.isRequired,
-    inputValueChange: PropTypes.func.isRequired
+    inputValueChange: PropTypes.func.isRequired,
+    dateSelectedForVisits: PropTypes.func.isRequired
   }),
   login: PropTypes.shape({}),
   authentication: PropTypes.shape({}),
@@ -63,7 +65,8 @@ function mapDispatchToProps(dispatch) {
     loginEmailEntered,
     loginPasswordEntered,
     authCheck,
-    inputValueChange
+    inputValueChange,
+    dateSelectedForVisits
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
