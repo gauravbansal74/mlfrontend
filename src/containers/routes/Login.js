@@ -10,7 +10,7 @@ import Login from 'components/Pages/Login';
 class LoginComponent extends React.Component {
   render() {
     return (
-      <OpenLayout>
+      <OpenLayout authentication={this.props.authentication}>
         {/* <Notification /> */}
         <Login {...this.props} />
       </OpenLayout>
@@ -25,7 +25,8 @@ LoginComponent.propTypes = {
 
 function mapStateToProps(state) {
   const props = {
-    login: state.login
+    login: state.login,
+    authentication: state.authentication
   };
   return props;
 }

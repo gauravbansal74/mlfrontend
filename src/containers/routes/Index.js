@@ -13,7 +13,7 @@ import {loadVisitData} from 'actions/index';
 class IndexComponent extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout authentication={this.props.authentication}>
         <Index {...this.props} />
       </Layout>
     );
@@ -28,7 +28,7 @@ IndexComponent.propTypes = {
 function mapStateToProps(state) {
   const props = {
     user: state.user,
-    location: state.location
+    authentication: state.authentication
   };
   return props;
 }

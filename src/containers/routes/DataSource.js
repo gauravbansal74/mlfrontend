@@ -18,7 +18,7 @@ class RoutesDataSource extends React.Component {
 
   render() {
     return (
-      <OpenLayout>
+      <OpenLayout authentication={this.props.authentication}>
         {/* <Notification /> */}
         <DataSource {...this.props} />
       </OpenLayout>
@@ -32,7 +32,8 @@ RoutesDataSource.propTypes = {};
 
 function mapStateToProps(state) {
   const props = {
-    dataSources: state.dataSources
+    dataSources: state.dataSources,
+    authentication: state.authentication
   };
   return props;
 }
