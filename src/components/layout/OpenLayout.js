@@ -24,7 +24,7 @@ const OpenLayoutComponent = ({...props}) => {
 };
 OpenLayoutComponent.displayName = 'OpenLayoutComponent';
 OpenLayoutComponent.propTypes = {
-  otherComponent: PropTypes.func.isRequired
+  // otherComponent: PropTypes.func.isRequired
 };
 OpenLayoutComponent.defaultProps = {};
 export default OpenLayoutComponent;

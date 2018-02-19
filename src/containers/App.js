@@ -4,10 +4,7 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import React, {
-  Component,
-  PropTypes
-} from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -20,7 +17,6 @@ import {
 class App extends Component {
   render() {
     const {actions, login, authentication} = this.props;
-    console.log(this.props.children);
     return (
       <div {...this.props}>
         {this.props.children}
