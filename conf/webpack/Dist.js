@@ -26,7 +26,7 @@ class WebpackDevConfig extends WebpackBaseConfig {
         filename: '[name].bundle.js',
         chunkFilename: '[name].bundle.js',
         path: path.resolve('./dist/assets'),
-        publicPath: 'http://localhost:8000/assets/'
+        publicPath: 'http://demo.atdesk.co/assets/'
       },
       devtool: 'eval',
       plugins: [
