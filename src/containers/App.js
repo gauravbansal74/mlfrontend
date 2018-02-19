@@ -4,15 +4,17 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   loggedIn,
   userProfileLoaded,
   loginEmailEntered,
-  loginPasswordEntered
+  loginPasswordEntered,
+  authCheck
 } from '../actions/';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
@@ -34,7 +36,8 @@ App.propTypes = {
     loggedIn: PropTypes.func.isRequired,
     userProfileLoaded: PropTypes.func.isRequired,
     loginEmailEntered: PropTypes.func.isRequired,
-    loginPasswordEntered: PropTypes.func.isRequired
+    loginPasswordEntered: PropTypes.func.isRequired,
+    authCheck: PropTypes.func.isRequired
   }),
   login: PropTypes.shape({}),
   authentication: PropTypes.shape({})
@@ -54,7 +57,8 @@ function mapDispatchToProps(dispatch) {
     loggedIn,
     userProfileLoaded,
     loginEmailEntered,
-    loginPasswordEntered
+    loginPasswordEntered,
+    authCheck
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
