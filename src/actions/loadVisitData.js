@@ -8,6 +8,7 @@ function action(date) {
       dispatch({type: VISIT_DATA_LOADED, parameter: res})
       return res;
     }).catch((res) => {
+      dispatch({type: VISIT_DATA_LOADED, parameter: []})
       if (res.status !== 0) {
         dispatch(notify({message: JSON.parse(res.responseText).message, status: res.status}));
       } else {

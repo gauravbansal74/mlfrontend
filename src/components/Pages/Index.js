@@ -46,26 +46,29 @@ class IndexPage extends React.Component {
               onChange={this.handleDate}/>
           </div>
           <div className="col-md-12">
-            <table className="table table-striped">
-              <thead>
+            {
+              visits.length > 0 ? <table className="table table-striped">
+                <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">website</th>
                   <th scope="col">Visits</th>
                 </tr>
-              </thead>
-              <tbody>
-              {
-                visits.map((visit, index) => (
+                </thead>
+                <tbody>
+                {
+                  visits.map((visit, index) => (
                     <tr key={visit._id}>
                       <th scope="row">{index+1}</th>
                       <td>{visit.website}</td>
                       <td>{visit.visits}</td>
                     </tr>
                   ))
-              }
-              </tbody>
-            </table>
+                }
+                </tbody>
+              </table> : "No Records"
+            }
+
           </div>
         </div>
       </div>
