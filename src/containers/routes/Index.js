@@ -8,12 +8,12 @@ import PropTypes from 'prop-types';
 import Layout from 'components/Layout/OpenLayout';
 import Index from 'components/Pages/Index';
 
-import {loadVisitData} from 'actions/index';
+import {loadVisitData, logout} from 'actions/index';
 
 class IndexComponent extends React.Component {
   render() {
     return (
-      <Layout authentication={this.props.authentication}>
+      <Layout authentication={this.props.authentication} logout={this.props.actions.logout}>
         <Index {...this.props} />
       </Layout>
     );
@@ -34,7 +34,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {loadVisitData};
+  const actions = {loadVisitData, logout};
   const actionMap = {actions: bindActionCreators(actions, dispatch)};
   return actionMap;
 }

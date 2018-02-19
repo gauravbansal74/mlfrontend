@@ -7,7 +7,7 @@ import OpenLayout from 'components/Layout/OpenLayout';
 import DataSource from 'components/Pages/DataSource';
 // import {Notification} from 'common/index';
 
-import {loadDataSource} from 'actions';
+import {loadDataSource, logout} from 'actions';
 
 class RoutesDataSource extends React.Component {
 
@@ -18,7 +18,7 @@ class RoutesDataSource extends React.Component {
 
   render() {
     return (
-      <OpenLayout authentication={this.props.authentication}>
+      <OpenLayout authentication={this.props.authentication} logout={this.props.actions.logout}>
         {/* <Notification /> */}
         <DataSource {...this.props} />
       </OpenLayout>
@@ -39,7 +39,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {loadDataSource};
+  const actions = {loadDataSource, logout};
   const actionMap = {actions: bindActionCreators(actions, dispatch)};
   return actionMap;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 
-const OpenLayoutComponent = ({children, authentication}) => {
+const OpenLayoutComponent = ({children, authentication, logout}) => {
   return (
     <div className="container-fluid p-0">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,6 +18,11 @@ const OpenLayoutComponent = ({children, authentication}) => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/data-source">Data Sources</Link>
+              </li>
+              <li className="nav-item">
+                <a className="dropdown-item border border-light border-top-0 p-2" onClick={() => { logout(); }} href="#">
+                  Logout
+                </a>
               </li>
             </ul> : ''
           }

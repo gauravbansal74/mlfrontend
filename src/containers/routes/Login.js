@@ -10,7 +10,7 @@ import Login from 'components/Pages/Login';
 class LoginComponent extends React.Component {
   render() {
     return (
-      <OpenLayout authentication={this.props.authentication}>
+      <OpenLayout authentication={this.props.authentication} logout={()=>{}}>
         {/* <Notification /> */}
         <Login {...this.props} />
       </OpenLayout>

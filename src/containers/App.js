@@ -17,7 +17,8 @@ import {
   loadVisitData,
   visitDataLoaded,
   dataSourceLoaded,
-  loadDataSource
+  loadDataSource,
+  logout
 } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -52,7 +53,8 @@ App.propTypes = {
     loadVisitData: PropTypes.func.isRequired,
     visitDataLoaded: PropTypes.func.isRequired,
     dataSourceLoaded: PropTypes.func.isRequired,
-    loadDataSource: PropTypes.func.isRequired
+    loadDataSource: PropTypes.func.isRequired,
+    logout: PropTypes.func.isRequired
   }),
   login: PropTypes.shape({}),
   authentication: PropTypes.shape({}),
@@ -85,7 +87,8 @@ function mapDispatchToProps(dispatch) {
     loadVisitData,
     visitDataLoaded,
     dataSourceLoaded,
-    loadDataSource
+    loadDataSource,
+    logout
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
