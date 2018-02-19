@@ -2,7 +2,12 @@ import Request from '../api/request.js';
 
 const Visits = {
   loadVisitData(date) {
-    return Request.get('visits/'+date);
+    if(date){
+      return Request.get('visits/'+date);
+    } else {
+      return Request.get('visits');
+    }
+
   },
   loadDataSources() {
       return Request.get('data-sources');

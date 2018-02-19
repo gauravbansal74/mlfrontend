@@ -11,6 +11,12 @@ import Index from 'components/Pages/Index';
 import {loadVisitData, logout} from 'actions/index';
 
 class IndexComponent extends React.Component {
+
+  componentDidMount() {
+    const {actions} = this.props;
+    actions.loadVisitData();
+  }
+
   render() {
     return (
       <Layout authentication={this.props.authentication} logout={this.props.actions.logout}>

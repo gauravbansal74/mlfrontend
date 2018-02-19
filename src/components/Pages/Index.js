@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: (new Date()).getTime()
+      // selectedDate: (new Date()).getTime()
     };
     this.handleDate = this.handleDate.bind(this);
   }
@@ -30,7 +30,7 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    const { actions, visits} = this.props;
+    const {visits} = this.props;
     const {selectedDate} = this.state;
     return (
       <div className="col-md-8">
@@ -60,7 +60,7 @@ class IndexPage extends React.Component {
                   visits.map((visit, index) => (
                     <tr key={visit._id}>
                       <th scope="row">{index+1}</th>
-                      <td>{visit.website}</td>
+                      <td>{visit.website ? visit.website : visit._id}</td>
                       <td>{visit.visits}</td>
                     </tr>
                   ))
