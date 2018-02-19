@@ -22,6 +22,7 @@ class WebpackDevConfig extends WebpackBaseConfig {
         app: './client.js',
         index: './containers/routes/Index',
         login: './containers/routes/Login',
+        dataSource: './containers/routes/DataSource',
       },
       output: {
         filename: '[name].bundle.js',

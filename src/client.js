@@ -49,6 +49,14 @@ render(
                   cb(null, require('./containers/routes/Index').default);
                 }, 'index');
               }}/>
+            <Route
+              path="/data-source"
+              name="DataSource"
+              getComponent={(location, cb) => {
+                require.ensure([], (require) => {
+                  cb(null, require('./containers/routes/DataSource').default);
+                }, 'dataSource');
+              }}/>
           </Route>
         </Route>
       </Route>

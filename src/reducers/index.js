@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import dataSources from '../reducers/dataSources.js';
 import visits from '../reducers/visits.js';
 import user from '../reducers/user.js';
 import authentication from '../reducers/authentication.js';
@@ -9,6 +10,7 @@ const reducers = {
   routing: routerReducer,
   authentication,
   user,
-  visits
+  visits,
+  dataSources
 };
 module.exports = combineReducers(reducers);

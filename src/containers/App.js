@@ -15,16 +15,21 @@ import {
   inputValueChange,
   dateSelectedForVisits,
   loadVisitData,
-  visitDataLoaded
+  visitDataLoaded,
+  dataSourceLoaded,
+  loadDataSource
 } from '../actions/';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, login, authentication, user, visits} = this.props;
+    const {actions, login, authentication, user, visits, dataSources} = this.props;
     return (
-      <div {...this.props} user={user} visits={visits}>
+      <div {...this.props}
+        user={user}
+        visits={visits}
+        dataSources={dataSources}>
         {this.props.children}
       </div>
     );
@@ -45,12 +50,15 @@ App.propTypes = {
     inputValueChange: PropTypes.func.isRequired,
     dateSelectedForVisits: PropTypes.func.isRequired,
     loadVisitData: PropTypes.func.isRequired,
-    visitDataLoaded: PropTypes.func.isRequired
+    visitDataLoaded: PropTypes.func.isRequired,
+    dataSourceLoaded: PropTypes.func.isRequired,
+    loadDataSource: PropTypes.func.isRequired
   }),
   login: PropTypes.shape({}),
   authentication: PropTypes.shape({}),
   user: PropTypes.shape({}),
-  visits: PropTypes.shape({})
+  visits: PropTypes.shape({}),
+  dataSources: PropTypes.shape({})
 };
 function mapStateToProps(state) {
   // eslint-disable-line no-unused-vars
@@ -59,7 +67,8 @@ function mapStateToProps(state) {
     login: state.login,
     authentication: state.authentication,
     user: state.user,
-    visits: state.visits
+    visits: state.visits,
+    dataSources: state.dataSources
   };
   return props;
 }
@@ -74,7 +83,9 @@ function mapDispatchToProps(dispatch) {
     inputValueChange,
     dateSelectedForVisits,
     loadVisitData,
-    visitDataLoaded
+    visitDataLoaded,
+    dataSourceLoaded,
+    loadDataSource
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
