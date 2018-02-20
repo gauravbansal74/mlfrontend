@@ -6,22 +6,22 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-import { inputValueChange, authCheck } from 'actions';
+import { inputValueChange, registerUser } from 'actions';
 import { Form } from 'common/components/index';
 
 import {
-    LOGIN_EMAIL_ENTERED,
-    LOGIN_PASSWORD_ENTERED
+  LOGIN_EMAIL_ENTERED,
+  LOGIN_PASSWORD_ENTERED
 } from 'actions/const';
 
-class Login extends React.Component {
+class Register extends React.Component {
   render() {
     const { actions, login } = this.props;
     return (
       <div className="col-md-4">
         <div className="row">
-          <form id="login-form" className="col-md-12 text-left m-0" data-parsley-validate noValidate>
-            <h4>Sign In</h4>
+          <form id="registeration-form" className="col-md-12 text-left m-0" data-parsley-validate noValidate>
+            <h4>Register</h4>
             <hr />
             <Form.Email
               name={LOGIN_EMAIL_ENTERED}
@@ -42,17 +42,19 @@ class Login extends React.Component {
                 type="button"
                 className="btn btn-primary btn-block"
                 onClick={() => {
-                  if ($('#login-form').parsley().validate()) {
-                    actions.authCheck(login.email, login.password);
+                  if ($('#registeration-form').parsley().validate()) {
+                    actions.registerUser(login);
                   }
                 }}>
-                Sign in
+                Register
               </button>
             </div>
           </form>
-          <div className="col-md-12 text-center pt-1">
-            <h6 className="d-inline-block">Don&#39;t have an Account?</h6>
-            <Link className="btn btn-link pr-0 d-inline-block" to="/register"> Sign Up </Link>
+          <div className="col-md-12  text-center pt-1">
+            <h6 className="d-inline-block">
+              Already have an Account?
+              <Link className="btn btn-link m-0 d-inline-block" to="/login">Login</Link>
+            </h6>
           </div>
         </div>
       </div>
@@ -60,9 +62,9 @@ class Login extends React.Component {
   }
 }
 
-Login.displayName = 'LoginPage';
+Register.displayName = 'RegisterPage';
 
-Login.propTypes = {
+Register.propTypes = {
   actions: PropTypes.shape({}),
   login: PropTypes.shape({}).isRequired
 };
@@ -75,9 +77,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { inputValueChange, authCheck };
+  const actions = { inputValueChange, registerUser};
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

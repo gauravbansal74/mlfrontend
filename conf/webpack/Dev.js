@@ -22,6 +22,7 @@ class WebpackDevConfig extends WebpackBaseConfig {
         app: './client.js',
         index: './containers/routes/Index',
         login: './containers/routes/Login',
+        register: './containers/routes/Register',
         dataSource: './containers/routes/DataSource',
       },
       output: {

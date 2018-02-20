@@ -42,6 +42,14 @@ render(
                 cb(null, require('./containers/routes/Login').default);
               }, 'login');
             }}/>
+          <Route
+            path="/register"
+            name="Register"
+            getComponent={(location, cb) => {
+              require.ensure([], (require) => {
+                cb(null, require('./containers/routes/Register').default);
+              }, 'register');
+            }}/>
         </Route>
 
         <Route name="AuthCheck" component={AuthCheckComponent}>

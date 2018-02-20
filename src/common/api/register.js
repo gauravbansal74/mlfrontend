@@ -6,12 +6,6 @@ const Register = {
   createAccount(data) {
     return Request.post('register', data);
   },
-  emailConfirmation(id) {
-    return Request.post(`register/${id}/confirmation`, null);
-  },
-  setupAccount(user) {
-    return Request.post(`account/${user.id}/setup`, user);
-  },
   loginAccount(email, password) {
     const data = {email, password};
     return Request.post('login', data).then((result, status, response) => {
