@@ -32,8 +32,10 @@ class DataSourcePage extends React.Component {
                         <th scope="row">{index+1}</th>
                         <td>{dataSource.fileName}</td>
                         <td>{dataSource.message}</td>
-                        <td>{dataSource.status}</td>
-                        <td>{dataSource.created}</td>
+                        <td>{dataSource.status == "SUCCESS" ?
+                          <span className="bg-success p-2">{dataSource.status}</span>
+                          : <span className="bg-info p-2">{dataSource.status}</span>}</td>
+                        <td>{moment(dataSource.created).format("Do MMMM YYYY, h:mm:ss a")}</td>
                       </tr>
                     ))
                   }
@@ -50,7 +52,10 @@ class DataSourcePage extends React.Component {
 
 DataSourcePage.displayName = 'DataSourcePage';
 
-DataSourcePage.propTypes = {};
+DataSourcePage.propTypes = {
+  actions: PropTypes.shape({}),
+  dataSources: PropTypes.shape({}),
+};
 
 function mapStateToProps(state) {
   const props = {
