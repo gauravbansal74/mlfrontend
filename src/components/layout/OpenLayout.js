@@ -6,28 +6,23 @@ const OpenLayoutComponent = ({children, authentication, logout}) => {
   return (
     <div className="container-fluid p-0">
       <Notification />
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <span className="navbar-brand mb-0 h1">Website Visits</span>
-        <button className="navbar-toggler" type="button">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse">
           {
-            authentication.loggedIn ? <ul className="navbar-nav">
-              <li className="nav-item active">
+            authentication.loggedIn ? <ul className="navbar-nav justify-content-end">
+              <li className="nav-item">
                 <Link className="nav-link" to="/">Visits</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/data-source">Data Sources</Link>
               </li>
               <li className="nav-item">
-                <a className="dropdown-item border border-light border-top-0 p-2" onClick={() => { logout(); }} href="#">
+                <a className="nav-link" onClick={() => { logout(); }} href="#">
                   Logout
                 </a>
               </li>
             </ul> : ''
           }
-        </div>
       </nav>
       <div className="row justify-content-around" style={{'height': '100%'}}>
         {children}
@@ -36,6 +31,10 @@ const OpenLayoutComponent = ({children, authentication, logout}) => {
   );
 };
 OpenLayoutComponent.displayName = 'OpenLayoutComponent';
-OpenLayoutComponent.propTypes = {};
+OpenLayoutComponent.propTypes = {
+  children: PropTypes.shape({}),
+  authentication: PropTypes.shape({}),
+  logout: PropTypes.shape({}),
+};
 OpenLayoutComponent.defaultProps = {};
 export default OpenLayoutComponent;

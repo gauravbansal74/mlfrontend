@@ -4,7 +4,10 @@ import {VISIT_DATA_LOADED} from './const';
 
 function action(date) {
   return function (dispatch) {
-    return API.loadVisitData(date).then((res) => {
+    return API.loadVisitData(date).then((res, messageResponse, response) => {
+      if (res.message) {
+        dispatch(notify({message: res.message, status: '400'}));
+      }
       dispatch({type: VISIT_DATA_LOADED, parameter: res})
       return res;
     }).catch((res) => {

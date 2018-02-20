@@ -30,13 +30,14 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    const {visits} = this.props;
+    const {visits, actions} = this.props;
     const {selectedDate} = this.state;
     return (
       <div className="col-md-8">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-6">
             <DatePicker
+              className="form-control mr-sm-2"
               label="Select Date"
               name={DATE_SELECTED_FOR_VISITS}
               placeholder="Click to select a Date"
@@ -44,6 +45,9 @@ class IndexPage extends React.Component {
               value={selectedDate}
               disabled
               onChange={this.handleDate}/>
+          </div>
+          <div className="col-md-6 pt-4 mt-2 text-right">
+            <button className="btn btn-outline-success my-2 my-sm-0" onClick={()=>actions.loadVisitData()}>Overall Top 5 Website</button>
           </div>
           <div className="col-md-12">
             {
@@ -66,7 +70,11 @@ class IndexPage extends React.Component {
                   ))
                 }
                 </tbody>
-              </table> : "No Records"
+              </table> : <div className="card">
+                <div className="card-body text-center font-weight-bold">
+                  No Records.
+                </div>
+              </div>
             }
 
           </div>
