@@ -2,7 +2,7 @@ import baseConfig from './base';
 
 const config = {
   appEnv: 'dev',
-  server: 'http://api.atdesk.co/'
+  server: 'http://localhost:8081/'
 };
 
 export default Object.freeze(Object.assign({}, baseConfig, config));

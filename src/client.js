@@ -8,6 +8,9 @@ import {LOGGED_IN, USER_PROFILE_LOADED} from 'actions/const';
 import {verifyUser} from 'actions';
 import configureStore from 'stores';
 
+import 'font-awesome/css/font-awesome.css';
+import 'styles/main.css';
+
 
 import AuthCheckComponent from './components/route/AuthenticatedRoute';
 import UnAuthCheckComponent from './components/route/UnauthenticatedRoute';
@@ -23,6 +26,7 @@ userData.then((res) => {
 }).catch(() => {
   store.dispatch({type: LOGGED_IN, parameter: false});
 });
+
 
 // Router for application Level
 render(
